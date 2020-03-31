@@ -1,0 +1,10 @@
+body {
+    background-color: beige;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+}

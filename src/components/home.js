@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './widget/header';
 import * as actions from './actions/index';
+import './home.css'
 
 
 
@@ -24,9 +25,11 @@ class Home extends Component {
                                 <div className="card border-warning">
                                    <img src={item.album.cover_big} alt="" className="card-img-top"/>
                                    <div className="card-body">
-                                            <span className="text-success">Drake</span>
+                                            <span className="text-success">
+                                                {item.artist.name}
+                                            </span>
                                         <div className="card-title">
-                                            album title
+                                        {item.title}
                                         </div>
                                    </div>
                                    <div className="card-footer">
