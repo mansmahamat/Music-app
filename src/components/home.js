@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './widget/header';
 import * as actions from './actions/index';
+import Search from '../components/searchBar/searchBar'
 import './home.css'
 
 
@@ -16,6 +17,11 @@ class Home extends Component {
             albums : item
         }));
     }
+    searchAlbums = (terms) => {
+        actions.getAlbums(terms).then(item=> this.setState({
+            albums : item    
+        }))
+    }
 
     renderAlbums = () => {
         const {albums} = this.state;
@@ -25,7 +31,7 @@ class Home extends Component {
                                 <div className="card border-warning">
                                    <img src={item.album.cover_big} alt="" className="card-img-top"/>
                                    <div className="card-body">
-                                            <span className="text-success">
+                                            <span className="text-warning">
                                                 {item.artist.name}
                                             </span>
                                         <div className="card-title">
@@ -34,8 +40,8 @@ class Home extends Component {
                                    </div>
                                    <div className="card-footer">
                                        <div className="links">
-                                           <a href="#"><i className="fas fa-info text-warning"></i></a>
-                                           <a href="#"><i className="fas fa-heart text-warning"></i></a>
+                                           <a href="#" className="link"><i className="fas fa-info text-warning"></i></a>
+                                           <a href="#" className="link"><i className="fas fa-heart text-danger"></i></a>
                                        </div>
                                    </div>
                                 </div>
@@ -51,6 +57,9 @@ class Home extends Component {
                 <div className="row mt-4">
                     <div className="col-md-10 mx-auto">
                         <Header/>
+                        <Search 
+                        searchAlbums={this.searchAlbums}
+                        />
                         <div className="row">
                             {this.renderAlbums()}
                         </div>

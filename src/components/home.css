@@ -1,5 +1,5 @@
 body {
-    background-color: beige;
+    background-color: #1F1B24;
 }
 
 .links {
@@ -8,3 +8,34 @@ body {
     justify-content: space-between;
     font-size: 20px;
 }
+
+.links .link {
+    background-color: #1F1B24;
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 6px;
+    font-size: 24px;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-body{
+    background-color: #1F1B24;
+}
+
+.card-title {
+color: ivory;
+}
+
+.card-footer {
+    background-color: ivory;
+    }
+
+.search .form-group button {
+    margin: 5px;
+}
+
