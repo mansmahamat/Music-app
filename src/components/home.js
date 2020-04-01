@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Header from './widget/header';
 import * as actions from './actions/index';
-import Search from '../components/searchBar/searchBar'
+import Search from '../components/searchBar/searchBar';
+import {Link} from 'react-router-dom';
 import './home.css'
 
 
@@ -40,7 +41,7 @@ class Home extends Component {
                                    </div>
                                    <div className="card-footer">
                                        <div className="links">
-                                           <a href="#" className="link"><i className="fas fa-info text-warning"></i></a>
+                                           <Link to={`/details/${item.album.id}`} className="link"><i className="fas fa-info text-warning"></i></Link>
                                            <a href="#" className="link"><i className="fas fa-heart text-danger"></i></a>
                                        </div>
                                    </div>
