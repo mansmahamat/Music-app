@@ -11,7 +11,7 @@ const request = axios.create({
 
 
 
-export function getAlbums(search = 'drake'){
+export function getAlbums(search = 'travis scott'){
     const albums = request.get(`search?q=${search}`)
                 .then(response => response.data.data)
                 .catch(error => console.log(error));
@@ -24,3 +24,9 @@ export function getAlbum(id){
                 .catch(error => console.log(error));
                 return album;
 }
+
+export function getFavouritesAlbums(){
+    const albums = localStorage.getItem('favourites');
+    return albums;
+}
+

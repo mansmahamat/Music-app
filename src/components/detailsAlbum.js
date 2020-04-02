@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import * as actions from './actions/index';
 import Header from './widget/header';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+
+import './detailsAlbums.css'
 
 class DetailsAlbum extends Component {
     state = {
@@ -15,6 +19,27 @@ class DetailsAlbum extends Component {
             });
         })
     }
+
+    renderTracks = () => {
+        const {tracks} = this.state;
+        return tracks && tracks.length ? 
+            tracks.map((track,index) =>(
+                <figure key={index} className="figure">
+                    <figcaption className="figure-caption text-xs-right text-warning">
+                        Ecouter : {track.title}
+                    </figcaption>
+                    <AudioPlayer
+    volume={0.1}
+    src={track.preview}
+
+  />
+                   
+
+                </figure>
+    ))
+    : null;
+    }
+
     renderAlbum = () => {
         const {album} = this.state;
         return(
@@ -24,10 +49,12 @@ class DetailsAlbum extends Component {
                                    <div className="card-body">
                                             <span className="text-warning">Sortie : {album.release_date}</span>
                                         <div className="card-title">
-                                        {album.title}
+                                            <span className="text-warning">Album : {album.title}</span>
                                         </div>
                                    </div>
-                                  
+                                  <div className="card-footer">
+                                      {this.renderTracks()}
+                                  </div>
                                 </div>
                             </div> 
     )
